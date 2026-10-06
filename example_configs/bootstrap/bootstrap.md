@@ -53,8 +53,8 @@ Fields description:
 
 * `name`: name of the group (**MANDATORY**)
 
+`groups.jsonl`:  
 ```jsonl
-# groups.jsonl
 {
   "name": "group-1"
 }
@@ -83,8 +83,8 @@ Fields description:
 * `weserv_avatar` (`false` by default): avatar file from `avatar_url` or `gravatar_avatar` would be converted to jpeg using [wsrv.nl](https://wsrv.nl) (useful when your avatar is png)
 * `groups`: an array of groups the user would be a member of (all the groups must be specified in group config files)
 
+`user-1.json`:  
 ```json
-# user-1.json
 {
   "id": "username",
   "email": "username@example.com",
@@ -116,6 +116,8 @@ Fields description:
 * `isEditable`: self-explanatory
 * `isVisible`: self-explanatory
 
+
+`user-attrs-1.json`:   
 ```json
 [
   {
@@ -185,7 +187,7 @@ Let's suppose you have the next file structure:
    │  ├─ ...
    │  └─ user-n.json
    └─ group-configs
-   |  ├─ group.jsonl   
+   |  ├─ groups.jsonl   
    |  ├─ group-1.json
    |  ├─ ...
    |  └─ group-n.json
