@@ -101,7 +101,16 @@ auth() {
     --header 'Content-Type: application/json' \
     --data "$(jo -- username="$admin_username" password="$admin_password")")"
 
-  TOKEN="$(printf '%s' "$response" | jq --raw-output .token)"
+  if [ -z "$response" ]; then
+    echo "Error: Authentication request failed or returned an empty response." >&2
+    exit 1
+  fi
+
+  if ! TOKEN="$(printf '%s' "$response" | jq -e -r '.token' 2>/dev/null)"; then
+    echo "Error: Authentication failed. Invalid credentials or malformed JSON response." >&2
+    printf 'Response received: %s\n' "$response" >&2
+    exit 1
+  fi    
 }
 
 make_query() {
