@@ -43,7 +43,7 @@ The script can:
 ## Config files
 
 There are two types of config files: [group](#group-config-file-example) and [user](#user-config-file-example) configs.
-Each config file can be as one JSON file with nested JSON top-level values as several JSON files.
+Each config file can be as one JSON file with nested JSON top-level values (JSONL/NDJSON) or split into several JSON files.
 
 ### Group config file example
 
@@ -53,7 +53,8 @@ Fields description:
 
 * `name`: name of the group (**MANDATORY**)
 
-```json
+```jsonl
+# groups.jsonl
 {
   "name": "group-1"
 }
@@ -83,6 +84,7 @@ Fields description:
 * `groups`: an array of groups the user would be a member of (all the groups must be specified in group config files)
 
 ```json
+# user-1.json
 {
   "id": "username",
   "email": "username@example.com",
@@ -183,6 +185,7 @@ Let's suppose you have the next file structure:
    │  ├─ ...
    │  └─ user-n.json
    └─ group-configs
+   |  ├─ group.jsonl   
    |  ├─ group-1.json
    |  ├─ ...
    |  └─ group-n.json

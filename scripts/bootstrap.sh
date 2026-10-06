@@ -606,16 +606,16 @@ main() {
 
   local file=''
   shopt -s nullglob
-  [[ -d "$USER_CONFIGS_DIR" ]] && for file in "${USER_CONFIGS_DIR}"/*.json; do
+  [[ -d "$USER_CONFIGS_DIR" ]] && for file in "${USER_CONFIGS_DIR}"/*.{json,jsonl,ndjson}; do
     user_config_files+=("$file")
   done
-  [[ -d "$GROUP_CONFIGS_DIR" ]] && for file in "${GROUP_CONFIGS_DIR}"/*.json; do
+  [[ -d "$GROUP_CONFIGS_DIR" ]] && for file in "${GROUP_CONFIGS_DIR}"/*.{json,jsonl,ndjson}; do
     group_config_files+=("$file")
   done
-  [[ -d "$USER_SCHEMAS_DIR" ]] && for file in "${USER_SCHEMAS_DIR}"/*.json; do
+  [[ -d "$USER_SCHEMAS_DIR" ]] && for file in "${USER_SCHEMAS_DIR}"/*.{json,jsonl,ndjson}; do
     user_schema_files+=("$file")
   done
-  [[ -d "$GROUP_SCHEMAS_DIR" ]] && for file in "${GROUP_SCHEMAS_DIR}"/*.json; do
+  [[ -d "$GROUP_SCHEMAS_DIR" ]] && for file in "${GROUP_SCHEMAS_DIR}"/*.{json,jsonl,ndjson}; do
     group_schema_files+=("$file")
   done
   shopt -u nullglob
